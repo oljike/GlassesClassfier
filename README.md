@@ -46,7 +46,7 @@ $ python Train.py --lr 0.005 --model_name ResNet --pretrained None
 Натренированный модели нахадятся в папке weights.
 Для визуализации работы алгоритма и вывода результов запустите:
 ```bash
-$ python Predict.py  --model_name <Название модел: ResNet, MobileNet>  --model_path <Путь к натренированной модели>  
+$ python Predict.py  --model_name <Название модели: ResNet, MobileNet>  --model_path <Путь к натренированной модели>  
                      --test_dir <Путь к папке с тестовыми картинками> --vis <визуализация результатов: True, False>
 ```
 

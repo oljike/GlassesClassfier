@@ -1,0 +1,5 @@
+weights/
+*.pyc
+annotations/
+.idea/
+__pycache__/

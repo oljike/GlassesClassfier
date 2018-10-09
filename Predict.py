@@ -68,7 +68,12 @@ def predict(model_name, model_path, images_path, vis = True):
                     face_img = face_img.cuda()
                     prob = net(face_img)
 
+
                     print("Вероятность очков", prob.item())
+                    calc_time = time.time() - t
+                    print(text)
+                    print("Время вычесления одной картинки", calc_time)
+                    time_.append(calc_time)
 
                     if prob > 0.2:
                         text = 'There are glasses!'
@@ -80,10 +85,6 @@ def predict(model_name, model_path, images_path, vis = True):
                         if k == 27:
                             quit()
 
-                    calc_time = time.time() - t
-                    print(text)
-                    print("Время вычесления одной картинки", calc_time)
-                    time_.append(calc_time)
 
     print("Среднее время обработки одной картинки", np.mean(np.array(time_)))
 
@@ -93,7 +94,7 @@ def parse_args():
                                    argparse.ArgumentDefaultsHelpFormatter)
   parser.add_argument('--model_name', default='ResNet',
                       help='Possible options: ResNet, MobileNet')
-  parser.add_argument('--model_path', default='/home/oljike/PycharmProjects/GlassesClassification/weights/ResNet/ResNet_epoch_7-0.94-0.85-0.85.pt',
+  parser.add_argument('--model_path', default='/home/oljike/PycharmProjects/GlassesClassification/weights/ResNet/ResNet.pt',
                       help='Path to trained model')
   parser.add_argument('--test_dir', default='./Dataset/test',
                       help='Path to directiry which contains test images')

@@ -108,4 +108,3 @@ if __name__ == '__main__':
     args = parse_args()
     predict(args.model_name, args.model_path, args.test_dir, args.vis)
 
-
